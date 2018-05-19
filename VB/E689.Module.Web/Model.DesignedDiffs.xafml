@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<Application>
+  <BOModel>
+    <Class Name="E689.Module.DemoObject">
+      <OwnMembers>
+        <Member Name="TestMe" PropertyEditorType="E689.Module.Web.Editors.EnumPropertyEditorEx" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+</Application>
