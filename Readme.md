@@ -1,3 +1,10 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [ASPxEnumPropertyEditorEx.cs](./CS/E689.Module.Web/Editors/ASPxEnumPropertyEditorEx.cs) (VB: [ASPxEnumPropertyEditorEx.vb](./VB/E689.Module.Web/Editors/ASPxEnumPropertyEditorEx.vb))
+* [EnumPropertyEditorEx.cs](./CS/E689.Module.Win/Editors/EnumPropertyEditorEx.cs) (VB: [EnumPropertyEditorEx.vb](./VB/E689.Module.Win/Editors/EnumPropertyEditorEx.vb))
+* [DemoObjects.cs](./CS/E689.Module/BusinessObjects/DemoObjects.cs) (VB: [DemoObjects.vb](./VB/E689.Module/BusinessObjects/DemoObjects.vb))
+<!-- default file list end -->
 # How to represent an enumeration property via a drop-down box with check boxes
 
 
