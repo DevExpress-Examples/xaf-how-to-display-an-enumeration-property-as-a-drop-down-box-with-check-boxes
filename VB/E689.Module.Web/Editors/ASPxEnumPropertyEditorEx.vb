@@ -1,8 +1,7 @@
 ﻿Imports System.Web.UI.WebControls
 Imports DevExpress.ExpressApp.Model
 Imports DevExpress.ExpressApp.Utils
-Imports DevExpress.Web.ASPxGridView
-Imports DevExpress.Web.ASPxGridLookup
+Imports DevExpress.Web
 Imports DevExpress.ExpressApp.Editors
 Imports DevExpress.ExpressApp.Web.Editors.ASPx
 

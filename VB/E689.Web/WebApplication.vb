@@ -18,7 +18,7 @@ Namespace E689.Web
 			InitializeComponent()
 		End Sub
 		Protected Overrides Sub CreateDefaultObjectSpaceProvider(ByVal args As CreateCustomObjectSpaceProviderEventArgs)
-			args.ObjectSpaceProvider = New XPObjectSpaceProviderThreadSafe(args.ConnectionString, args.Connection)
+			args.ObjectSpaceProvider = New XPObjectSpaceProvider(args.ConnectionString, args.Connection, true)
 		End Sub
 
 		Private Sub E689AspNetApplication_DatabaseVersionMismatch(ByVal sender As Object, ByVal e As DevExpress.ExpressApp.DatabaseVersionMismatchEventArgs) Handles MyBase.DatabaseVersionMismatch
