@@ -83,12 +83,10 @@ namespace E689.Module.Web.Editors {
             if(Editor != null) {
                 if(String.IsNullOrEmpty(Editor.Text)) {
                     return GetNoneValue();
-                }
-                else {
+                } else {
                     return Enum.Parse(GetUnderlyingType(), ConvertFromLocalizedString(Editor.Text));
                 }
-            }
-            else {
+            } else {
                 return base.GetControlValueCore();
             }
         }
@@ -96,7 +94,9 @@ namespace E689.Module.Web.Editors {
             string result = unlocalizedString;
             foreach(object enumValue in EnumDescriptor.Values) {
                 string localizedEnumValueCaption = EnumDescriptor.GetCaption(enumValue);
-                result = result.Replace(enumValue.ToString(), localizedEnumValueCaption);
+                if(!string.IsNullOrEmpty(localizedEnumValueCaption)) {
+                    result = result.Replace(enumValue.ToString(), localizedEnumValueCaption);
+                }
             }
             return result;
         }
@@ -104,7 +104,9 @@ namespace E689.Module.Web.Editors {
             string result = localizedString;
             foreach(object enumValue in EnumDescriptor.Values) {
                 string localizedEnumValueCaption = EnumDescriptor.GetCaption(enumValue);
-                result = result.Replace(localizedEnumValueCaption, enumValue.ToString());
+                if(!string.IsNullOrEmpty(localizedEnumValueCaption)) {
+                    result = result.Replace(localizedEnumValueCaption, enumValue.ToString());
+                }
             }
             return result;
         }
