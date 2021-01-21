@@ -26,7 +26,7 @@ Namespace E689.Module.DatabaseUpdate
 			If theObject Is Nothing Then
 				theObject = ObjectSpace.CreateObject(Of DemoObject)()
 				theObject.Name = name
-				theObject.TestMe = TestFlagsAttributeEnum.Air Or TestFlagsAttributeEnum.Water
+				theObject.TestMe = TestFlagsAttributeEnum.AirTest Or TestFlagsAttributeEnum.AirWater
 			End If
 		End Sub
 	End Class
