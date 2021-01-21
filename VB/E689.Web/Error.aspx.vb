@@ -27,7 +27,7 @@ Partial Public Class ErrorPage
 		testScriptsManager.RegisterControl(JSLabelTestControl.ClassName, "RequestUrl", TestControlType.Field, "RequestUrl")
 		testScriptsManager.RegisterControl(JSLabelTestControl.ClassName, "DescriptionTextBox", TestControlType.Field, "Description")
 		testScriptsManager.RegisterControl(JSDefaultTestControl.ClassName, "ReportButton", TestControlType.Action, "Report")
-		testScriptsManager.AllControlRegistered("")
+		testScriptsManager.AllControlRegistered()
 		If WebApplication.Instance IsNot Nothing Then
 			ApplicationTitle.Text = WebApplication.Instance.Title
 		Else

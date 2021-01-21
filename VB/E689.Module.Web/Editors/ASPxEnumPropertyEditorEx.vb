@@ -4,6 +4,7 @@ Imports DevExpress.ExpressApp.Utils
 Imports DevExpress.Web
 Imports DevExpress.ExpressApp.Editors
 Imports DevExpress.ExpressApp.Web.Editors.ASPx
+Imports System.Linq
 
 Namespace E689.Module.Web.Editors
     <PropertyEditor(GetType(System.Enum), False)>
@@ -99,15 +100,25 @@ Namespace E689.Module.Web.Editors
             Next enumValue
             Return result
         End Function
-        Private Function ConvertFromLocalizedString(ByVal localizedString As String) As String
-            Dim result As String = localizedString
+        Public Function ConvertFromLocalizedString(ByVal localizedString As String) As String
+            Dim captions As String() = localizedString.Split(","c)
+            Dim result As String = String.Empty
+
             For Each enumValue As Object In EnumDescriptor.Values
-                Dim localizedEnumValueCaption As String = EnumDescriptor.GetCaption(enumValue)
-                If Not String.IsNullOrEmpty(localizedEnumValueCaption) Then
-                    result = result.Replace(localizedEnumValueCaption, enumValue.ToString())
+                Dim enumCaption As String = EnumDescriptor.GetCaption(enumValue)
+
+                If captions.Any(Function(x) x.Trim() = enumCaption.Trim()) Then
+
+                    If String.IsNullOrEmpty(result) Then
+                        result += enumValue.ToString()
+                    Else
+                        result += String.Format("{0} {1}", ","c, enumValue.ToString())
+                    End If
                 End If
-            Next enumValue
+            Next
+
             Return result
+
         End Function
         Protected Overrides Sub SetImmediatePostDataScript(ByVal script As String)
             Editor.ClientSideEvents.CloseUp = script

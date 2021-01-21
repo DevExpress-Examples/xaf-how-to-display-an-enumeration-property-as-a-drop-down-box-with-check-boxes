@@ -6,6 +6,7 @@ using DevExpress.ExpressApp.Utils;
 using DevExpress.Web;
 using DevExpress.ExpressApp.Editors;
 using DevExpress.ExpressApp.Web.Editors.ASPx;
+using System.Linq;
 
 namespace E689.Module.Web.Editors {
     [PropertyEditor(typeof(System.Enum), false)]
@@ -14,7 +15,7 @@ namespace E689.Module.Web.Editors {
         public EnumPropertyEditorEx(Type objectType, IModelMemberViewItem model)
             : base(objectType, model) {
         }
-        private EnumDescriptor enumDescriptorCore = null;
+        public EnumDescriptor enumDescriptorCore = null;
         protected EnumDescriptor EnumDescriptor {
             get {
                 if(enumDescriptorCore == null) {
@@ -100,12 +101,16 @@ namespace E689.Module.Web.Editors {
             }
             return result;
         }
-        private string ConvertFromLocalizedString(string localizedString) {
-            string result = localizedString;
+        public string ConvertFromLocalizedString(string localizedString) {
+            string[] captions = localizedString.Split(',');
+            string result = string.Empty;
             foreach(object enumValue in EnumDescriptor.Values) {
-                string localizedEnumValueCaption = EnumDescriptor.GetCaption(enumValue);
-                if(!string.IsNullOrEmpty(localizedEnumValueCaption)) {
-                    result = result.Replace(localizedEnumValueCaption, enumValue.ToString());
+                string enumCaption = EnumDescriptor.GetCaption(enumValue);
+                if(captions.Any(x => x.Trim() == enumCaption.Trim())) {
+                    if(string.IsNullOrEmpty(result))
+                        result += enumValue.ToString();
+                    else
+                        result += string.Format("{0} {1}", ',', enumValue.ToString());
                 }
             }
             return result;
