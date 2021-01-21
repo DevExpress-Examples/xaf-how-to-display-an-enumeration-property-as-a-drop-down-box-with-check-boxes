@@ -107,6 +107,10 @@
     <Reference Include="DevExpress.Xpo.v18.2">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="nunit.framework, Version=3.10.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Dropbox\C#\THelper2\THelper\THelper\bin\Release\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System">
       <Private>False</Private>
     </Reference>
@@ -121,6 +125,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Editors\ASPxEnumPropertyEditorEx.cs" />
+    <Compile Include="Editors\EditorTests.cs" />
     <Compile Include="WebModule.cs">
       <SubType>Component</SubType>
     </Compile>
