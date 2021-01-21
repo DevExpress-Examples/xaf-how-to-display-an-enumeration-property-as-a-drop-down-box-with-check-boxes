@@ -26,7 +26,7 @@ namespace E689.Module.DatabaseUpdate {
             if(theObject == null) {
                 theObject = ObjectSpace.CreateObject<DemoObject>();
                 theObject.Name = name;
-                theObject.TestMe = TestFlagsAttributeEnum.Air | TestFlagsAttributeEnum.Water;
+                theObject.TestMe = TestFlagsAttributeEnum.Air | TestFlagsAttributeEnum.Fire;
             }
         }
     }

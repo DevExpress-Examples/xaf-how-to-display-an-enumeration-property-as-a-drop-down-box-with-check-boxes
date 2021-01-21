@@ -10,14 +10,12 @@ namespace E689.Module {
     public enum TestFlagsAttributeEnum {
         [XafDisplayName("")]
         None = 0,
-        [XafDisplayName("FireEx")]
-        Fire = 1,
-        [XafDisplayName("AirEx")]
-        Air = 2,
-        [XafDisplayName("WaterEx")]
-        Water = 4,
-        [XafDisplayName("EarthEx")]
-        Earth = 8
+        [XafDisplayName("Air")]
+        Air = 1,
+        [XafDisplayName("Air/Water")]
+        AirWater = 2,
+        [XafDisplayName("Air/Ground")]
+        AirGround = 4
     }
 
     [DefaultClassOptions]
