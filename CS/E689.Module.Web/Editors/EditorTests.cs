@@ -1,4 +1,6 @@
-﻿using DevExpress.ExpressApp.DC;
+﻿#if EASYTEST
+
+using DevExpress.ExpressApp.DC;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -59,3 +61,5 @@ namespace E689.Module.Web.Editors {
         }
     }
 }
+
+#endif
