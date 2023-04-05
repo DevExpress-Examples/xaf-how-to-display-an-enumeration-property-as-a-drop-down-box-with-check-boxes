@@ -24,12 +24,12 @@ namespace E689.Module {
         private string _Name;
         public string Name {
             get { return _Name; }
-            set { SetPropertyValue("Name", ref _Name, value); }
+            set { SetPropertyValue(nameof(Name), ref _Name, value); }
         }
         private TestFlagsAttributeEnum _TestMe;
         public TestFlagsAttributeEnum TestMe {
             get { return _TestMe; }
-            set { SetPropertyValue("TestMe", ref _TestMe, value); }
+            set { SetPropertyValue(nameof(TestMe), ref _TestMe, value); }
         }
     }
 }
