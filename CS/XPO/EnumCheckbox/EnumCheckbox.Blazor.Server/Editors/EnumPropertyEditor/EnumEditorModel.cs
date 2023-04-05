@@ -3,9 +3,9 @@
 namespace EnumCheckbox.Blazor.Server.Editors.EnumPropertyEditor {
   
     public class EnumEditorModel : ComponentModelBase {
-        public EnumEditorModel(List<MyEnumDescriptor> _source, string _fieldName, Type propertyType) {
+        public EnumEditorModel(List<MyEnumDescriptor> _source,Type propertyType) {
             DataSource = _source;
-            FieldName = _fieldName;
+            //FieldName = _fieldName;
             PropertyType = propertyType;
         }
 
@@ -22,10 +22,10 @@ namespace EnumCheckbox.Blazor.Server.Editors.EnumPropertyEditor {
             get => GetPropertyValue<bool>();
             set => SetPropertyValue(value);
         }
-        public string FieldName {
-            get => GetPropertyValue<string>();
-            set => SetPropertyValue(value);
-        }
+        //public string FieldName {
+        //    get => GetPropertyValue<string>();
+        //    set => SetPropertyValue(value);
+        //}
         // ...
         public void SetValueFromUI(IEnumerable<int> value) {
             SetPropertyValue(value, notify: false, nameof(Values));

@@ -2,7 +2,8 @@
 
 <DxListBox Data="@ComponentModel.DataSource"
            ReadOnly="@ComponentModel.ReadOnly"
-           TextFieldName="@ComponentModel.FieldName"
+           TextFieldName="Text"
+           ValueFieldName="Value"
            SelectionMode="@ListBoxSelectionMode.Multiple"
            ShowCheckboxes="true"
            @bind-Values="@Values"
@@ -15,7 +16,7 @@
         @<EnumRenderer ComponentModel=@componentModel />;
     private IEnumerable<int> Values {
         get => ComponentModel.Values;
-        set { ComponentModel.SetValueFromUI(value); InvokeAsync(StateHasChanged); }
+        set { ComponentModel.SetValueFromUI(value);  }
     }
   
 }

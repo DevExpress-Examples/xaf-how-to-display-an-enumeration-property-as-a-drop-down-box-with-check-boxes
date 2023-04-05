@@ -33,7 +33,7 @@ namespace EnumCheckbox.Blazor.Server.Editors.EnumPropertyEditor {
                 }
                 resultList.Add(new MyEnumDescriptor((int)t, t.ToString()));
             }
-            var model = new EnumEditorModel(resultList, "Text", tp);
+            var model = new EnumEditorModel(resultList,  tp);
             Type genericEnumType = typeof(EnumAdapter<>).MakeGenericType(tp);
             var adapter=(IComponentAdapter)Activator.CreateInstance(genericEnumType,model);
             return adapter;
