@@ -11,7 +11,7 @@ using System;
 
 namespace EnumCheckbox.Blazor.Server.Editors.EnumPropertyEditor {
 
-    public class EnumAdapter<T> : ComponentAdapterBase where T : Enum {
+    public class EnumAdapter<T> : ComponentAdapterBase, IHasModelAdapter where T : Enum {
 
 
         public EnumAdapter(EnumEditorModel componentModel) {
@@ -25,16 +25,23 @@ namespace EnumCheckbox.Blazor.Server.Editors.EnumPropertyEditor {
         }
         public override object GetValue() {
 
-            int tst=0;
+            //int tst=0;
 
+            //foreach (int val in ComponentModel.Values) {
+            //    tst |= val;
+            //}
+
+
+            //    var res= Enum.ToObject(typeof(T), tst);
+
+            //return res;
+
+            TestFlagsAttributeEnum var=TestFlagsAttributeEnum.None;
             foreach (int val in ComponentModel.Values) {
-                tst |= val;
+                var |= (TestFlagsAttributeEnum)val;
             }
-            
-                
-                var res= Enum.ToObject(typeof(T), tst);
+            return var;
 
-            return res;
         }
         public override void SetValue(object value) {
       
