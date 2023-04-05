@@ -3,14 +3,21 @@
 namespace EnumCheckbox.Blazor.Server.Editors.EnumPropertyEditor {
   
     public class EnumEditorModel : ComponentModelBase {
-        public EnumEditorModel(List<MyEnumDescriptor> _source, string _fieldName) {
+        public EnumEditorModel(List<MyEnumDescriptor> _source, string _fieldName, Type propertyType) {
             DataSource = _source;
             FieldName = _fieldName;
+            PropertyType = propertyType;
         }
-        public object Value {
-            get => GetPropertyValue<object>();
+
+        public Type PropertyType {
+            get => GetPropertyValue<Type>();
             set => SetPropertyValue(value);
         }
+
+        //public object Value {
+        //    get => GetPropertyValue<object>();
+        //    set => SetPropertyValue(value);
+        //}
         public bool ReadOnly {
             get => GetPropertyValue<bool>();
             set => SetPropertyValue(value);
@@ -20,8 +27,8 @@ namespace EnumCheckbox.Blazor.Server.Editors.EnumPropertyEditor {
             set => SetPropertyValue(value);
         }
         // ...
-        public void SetValueFromUI(IEnumerable<object> value) {
-            SetPropertyValue(value, notify: false, nameof(Value));
+        public void SetValueFromUI(IEnumerable<int> value) {
+            SetPropertyValue(value, notify: false, nameof(Values));
             ValueChanged?.Invoke(this, EventArgs.Empty);
         }
         public event EventHandler ValueChanged;
@@ -31,8 +38,8 @@ namespace EnumCheckbox.Blazor.Server.Editors.EnumPropertyEditor {
             set => SetPropertyValue(value);
         }
 
-        public IEnumerable<object> Values {
-            get => GetPropertyValue<IEnumerable<object>>();
+        public IEnumerable<int> Values {
+            get => GetPropertyValue<IEnumerable<int>>();
             set => SetPropertyValue(value);
         }
     }

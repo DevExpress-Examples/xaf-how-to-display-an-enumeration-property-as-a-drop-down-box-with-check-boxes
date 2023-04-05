@@ -13,8 +13,9 @@
     public EnumEditorModel ComponentModel { get; set; }
     public static RenderFragment Create(EnumEditorModel componentModel) =>
         @<EnumRenderer ComponentModel=@componentModel />;
-    private IEnumerable<object> Values {
+    private IEnumerable<int> Values {
         get => ComponentModel.Values;
-        set => ComponentModel.SetValueFromUI(value);
+        set { ComponentModel.SetValueFromUI(value); InvokeAsync(StateHasChanged); }
     }
+  
 }

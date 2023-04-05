@@ -28,9 +28,15 @@ namespace EnumCheckbox.Blazor.Server.Editors.EnumPropertyEditor {
             var enumValues = Enum.GetValues(tp);
             var resultList = new List<MyEnumDescriptor>();
             foreach(var t in enumValues) {
+                if((int)t == 0) {
+                    continue;
+                }
                 resultList.Add(new MyEnumDescriptor((int)t, t.ToString()));
             }
-          return  new EnumAdapter(new EnumEditorModel(resultList, "Text"));
+            var model = new EnumEditorModel(resultList, "Text", tp);
+            Type genericEnumType = typeof(EnumAdapter<>).MakeGenericType(tp);
+            var adapter=(IComponentAdapter)Activator.CreateInstance(genericEnumType,model);
+            return adapter;
 
         }
      
