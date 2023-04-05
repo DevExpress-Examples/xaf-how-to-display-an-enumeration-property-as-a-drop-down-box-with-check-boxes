@@ -5,7 +5,7 @@ using DevExpress.Persistent.BaseImpl;
 using DevExpress.ExpressApp.DC;
 using System.ComponentModel;
 
-namespace E689.Module {
+namespace EnumCheckboxModule.Module {
     [FlagsAttribute]
     public enum TestFlagsAttributeEnum {
         [XafDisplayName("")]
