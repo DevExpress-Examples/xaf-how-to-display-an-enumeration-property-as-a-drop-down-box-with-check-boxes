@@ -43,26 +43,22 @@ namespace EnumCheckbox.Blazor.Server.Editors.EnumPropertyEditor {
         }
         public override void SetValue(object value) {
       
-            var en = (Enum)value;
+            var modelEnumValue = (Enum)value;
 
-            var names = Enum.GetNames(ComponentModel.PropertyType);
-            var res = new List<int>();
-            foreach (var name in names) {
-                var item = (T)Enum.Parse(ComponentModel.PropertyType, name);
-                var tmp = (int)Convert.ChangeType(item, typeof(int));
-                if (tmp == 0) {
+            var allEnumValues = Enum.GetNames(ComponentModel.PropertyType);
+            var result = new List<int>();
+            foreach (var stringEnumValue in allEnumValues) {
+                var enumValue = (T)Enum.Parse(ComponentModel.PropertyType, stringEnumValue);
+                var intValue = (int)Convert.ChangeType(enumValue, typeof(int));
+                if (intValue == 0) {
                     continue;
                 }
-
-                if (en.HasFlag(item)) {
-                    
-
-                    res.Add(tmp);
-                    Console.WriteLine("Enum has " + name);
+                if (modelEnumValue.HasFlag(enumValue)) {
+                    result.Add(intValue);
                 }
             }
 
-            ComponentModel.Values = res;
+            ComponentModel.Values = result;
         }
         protected override RenderFragment CreateComponent() {
             return ComponentModelObserver.Create(ComponentModel, EnumRenderer.Create(ComponentModel));
