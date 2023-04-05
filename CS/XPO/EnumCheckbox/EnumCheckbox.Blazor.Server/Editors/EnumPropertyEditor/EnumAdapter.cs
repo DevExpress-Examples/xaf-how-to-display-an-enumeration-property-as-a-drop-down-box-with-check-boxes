@@ -25,22 +25,20 @@ namespace EnumCheckbox.Blazor.Server.Editors.EnumPropertyEditor {
         }
         public override object GetValue() {
 
-            //int tst=0;
+            int intValue = 0;
 
-            //foreach (int val in ComponentModel.Values) {
-            //    tst |= val;
-            //}
-
-
-            //    var res= Enum.ToObject(typeof(T), tst);
-
-            //return res;
-
-            TestFlagsAttributeEnum var=TestFlagsAttributeEnum.None;
             foreach (int val in ComponentModel.Values) {
-                var |= (TestFlagsAttributeEnum)val;
+                intValue |= val;
             }
-            return var;
+            var enumResult = Enum.ToObject(typeof(T), intValue);
+
+            return enumResult;
+
+            //TestFlagsAttributeEnum var=TestFlagsAttributeEnum.None;
+            //foreach (int val in ComponentModel.Values) {
+            //    var |= (TestFlagsAttributeEnum)val;
+            //}
+            //return var;
 
         }
         public override void SetValue(object value) {
