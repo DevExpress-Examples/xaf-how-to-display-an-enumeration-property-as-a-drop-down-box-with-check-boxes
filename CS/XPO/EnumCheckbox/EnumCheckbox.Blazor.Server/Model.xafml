@@ -1,7 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application>
-  <NavigationItems NavigationStyle="Accordion">
-  </NavigationItems>
-  <Views DefaultListEditor="DevExpress.ExpressApp.Blazor.Editors.DxGridListEditor">
-  </Views>
+  <BOModel>
+    <Class Name="EnumCheckboxModule.Module.DemoObject">
+      <OwnMembers>
+        <Member Name="TestMe" PropertyEditorType="EnumCheckbox.Blazor.Server.Editors.EnumPropertyEditor.EnumPropertyEditor" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <NavigationItems NavigationStyle="Accordion" />
+  <SchemaModules>
+    <SchemaModule Name="SystemModule" Version="22.2.4.0" IsNewNode="True" />
+  </SchemaModules>
+  <Views DefaultListEditor="DevExpress.ExpressApp.Blazor.Editors.DxGridListEditor" />
 </Application>
