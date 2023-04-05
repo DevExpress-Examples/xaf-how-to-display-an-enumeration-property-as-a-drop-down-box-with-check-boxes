@@ -1,11 +1,20 @@
 ﻿@using Microsoft.AspNetCore.Components.Web
-<input value=@ComponentModel.Value
-       @onchange=@(e => ComponentModel.SetValueFromUI((string)e.Value))
-       readonly=@ComponentModel.ReadOnly
-       @attributes=@ComponentModel.Attributes />
+
+<DxListBox Data="@ComponentModel.DataSource"
+           ReadOnly="@ComponentModel.ReadOnly"
+           TextFieldName="@ComponentModel.FieldName"
+           SelectionMode="@ListBoxSelectionMode.Multiple"
+           ShowCheckboxes="true"
+           @bind-Values="@Values"
+           @attributes=@ComponentModel.Attributes>
+</DxListBox>
 @code {
     [Parameter]
     public EnumEditorModel ComponentModel { get; set; }
     public static RenderFragment Create(EnumEditorModel componentModel) =>
         @<EnumRenderer ComponentModel=@componentModel />;
+    private IEnumerable<object> Values {
+        get => ComponentModel.Values;
+        set => ComponentModel.SetValueFromUI(value);
+    }
 }

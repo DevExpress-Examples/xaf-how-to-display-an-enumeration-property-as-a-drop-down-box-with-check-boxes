@@ -19,7 +19,7 @@ namespace EnumCheckbox.Blazor.Server.Editors.EnumPropertyEditor {
             return ComponentModel.Value;
         }
         public override void SetValue(object value) {
-            ComponentModel.Value = (string)value;
+            ComponentModel.Value = (Enum)value;
         }
         protected override RenderFragment CreateComponent() {
             return ComponentModelObserver.Create(ComponentModel, EnumRenderer.Create(ComponentModel));
