@@ -22,8 +22,8 @@ namespace EnumCheckbox.Blazor.Server.Editors.EnumPropertyEditor {
     
 
     [PropertyEditor(typeof(System.Enum), false)]
-    public class EnumPropertyEditor : BlazorPropertyEditorBase {
-        public EnumPropertyEditor(Type objectType, IModelMemberViewItem model) : base(objectType, model) { }
+    public class MyEnumPropertyEditor : BlazorPropertyEditorBase {
+        public MyEnumPropertyEditor(Type objectType, IModelMemberViewItem model) : base(objectType, model) { }
 
         private IHasModelAdapter _adapter;
         protected override IComponentAdapter CreateComponentAdapter() {

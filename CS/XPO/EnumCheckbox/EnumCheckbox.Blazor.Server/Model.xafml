@@ -3,7 +3,7 @@
   <BOModel>
     <Class Name="EnumCheckboxModule.Module.DemoObject">
       <OwnMembers>
-        <Member Name="TestMe" PropertyEditorType="EnumCheckbox.Blazor.Server.Editors.EnumPropertyEditor.EnumPropertyEditor" />
+        <Member Name="TestMe" PropertyEditorType="EnumCheckbox.Blazor.Server.Editors.EnumPropertyEditor.MyEnumPropertyEditor" />
       </OwnMembers>
     </Class>
   </BOModel>
