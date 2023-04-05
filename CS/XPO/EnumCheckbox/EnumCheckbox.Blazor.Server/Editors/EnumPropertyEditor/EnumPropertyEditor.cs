@@ -7,10 +7,11 @@ using EnumCheckboxModule.Module;
 using DevExpress.Data.Helpers;
 using System.Collections;
 using DevExpress.ExpressApp.Blazor.Components.Models;
+using DevExpress.ExpressApp.DC;
 
 namespace EnumCheckbox.Blazor.Server.Editors.EnumPropertyEditor {
-  
-
+    [DomainComponent]  
+    
     public class MyEnumDescriptor {
         public MyEnumDescriptor(int _value,string _text) {
             Value = _value;
