@@ -49,9 +49,13 @@ namespace EnumCheckbox.Blazor.Server.Editors.EnumPropertyEditor {
             var res = new List<int>();
             foreach (var name in names) {
                 var item = (T)Enum.Parse(ComponentModel.PropertyType, name);
-                
+                var tmp = (int)Convert.ChangeType(item, typeof(int));
+                if (tmp == 0) {
+                    continue;
+                }
+
                 if (en.HasFlag(item)) {
-                    var tmp=(int)Convert.ChangeType(item, typeof(int));
+                    
 
                     res.Add(tmp);
                     Console.WriteLine("Enum has " + name);
