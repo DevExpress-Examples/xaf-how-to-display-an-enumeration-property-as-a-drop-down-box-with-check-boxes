@@ -44,6 +44,10 @@ namespace EnumCheckbox.Blazor.Server.Editors.EnumPropertyEditor {
         public override void SetValue(object value) {
       
             var modelEnumValue = (Enum)value;
+            if (modelEnumValue is null) {
+                ComponentModel.Values = null;
+                return;
+            }
 
             var allEnumValues = Enum.GetNames(ComponentModel.PropertyType);
             var result = new List<int>();

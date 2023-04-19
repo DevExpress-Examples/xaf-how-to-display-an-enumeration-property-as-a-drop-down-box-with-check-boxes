@@ -8,6 +8,8 @@ using DevExpress.Data.Helpers;
 using System.Collections;
 using DevExpress.ExpressApp.Blazor.Components.Models;
 using DevExpress.ExpressApp.DC;
+using DevExpress.ExpressApp.Utils;
+using Microsoft.AspNetCore.Components;
 
 namespace EnumCheckbox.Blazor.Server.Editors.EnumPropertyEditor {
     [DomainComponent]  
@@ -54,13 +56,27 @@ namespace EnumCheckbox.Blazor.Server.Editors.EnumPropertyEditor {
             var tp = GetUnderlyingType();
             var enumValues = Enum.GetValues(tp);
             var resultList = new List<MyEnumDescriptor>();
+            var enumDescriptor = new EnumDescriptor(GetUnderlyingType());
             foreach (var t in enumValues) {
                 if ((int)t == 0) {
                     continue;
                 }
-                resultList.Add(new MyEnumDescriptor((int)t, t.ToString()));
+                resultList.Add(new MyEnumDescriptor((int)t, GetEnumCaption((Enum)t, enumDescriptor)));
             }
             return resultList;
+        }
+
+        protected override RenderFragment CreateViewComponentCore(object dataContext) {
+            var propertyValue = MemberInfo.GetValue(dataContext);
+            var enumDescriptor = new EnumDescriptor(GetUnderlyingType());
+            return builder => {
+                builder.AddContent(0, GetEnumCaption((Enum)propertyValue, enumDescriptor));
+            };
+        }
+
+        private string GetEnumCaption(Enum enumValue, EnumDescriptor enumDescriptor) {
+            return string.Join(", ", enumValue.ToString().Split(',').Select(x => enumDescriptor.GetCaption(Enum.Parse(enumDescriptor.EnumType, x.Trim()))));
+
         }
     }
 
