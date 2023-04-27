@@ -1,0 +1,22 @@
+﻿@using Microsoft.AspNetCore.Components.Web
+
+<DxListBox Data="@ComponentModel.DataSource"
+           ReadOnly="@ComponentModel.ReadOnly"
+           TextFieldName="Text"
+           ValueFieldName="Value"
+           SelectionMode="@ListBoxSelectionMode.Multiple"
+           ShowCheckboxes="true"
+           @bind-Values="@Values"
+           @attributes=@ComponentModel.Attributes>
+</DxListBox>
+@code {
+    [Parameter]
+    public EnumEditorModel ComponentModel { get; set; }
+    public static RenderFragment Create(EnumEditorModel componentModel) =>
+        @<EnumRenderer ComponentModel=@componentModel />;
+    private IEnumerable<int> Values {
+        get => ComponentModel.Values;
+        set { ComponentModel.SetValueFromUI(value);  }
+    }
+  
+}
