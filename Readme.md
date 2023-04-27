@@ -22,7 +22,7 @@
 Steps To Implement:
 Since there is no <a href="https://documentation.devexpress.com/#Xaf/CustomDocument3552">standard  PropertyEditor for enumerations</a> that would allow you to store several values at once, it is common to <a href="http://documentation.devexpress.com/#Xaf/CustomDocument3097">implement custom Property Editors</a> for this task. A custom PropertyEditor will take data property value as its input and represent it in the UI using a custom visual control. There will be one PropertyEditor for WinForms (based on the <em>CheckedComboBoxEdit</em> control from the XtraEditors Suite) and one for Blazor (based on the [DxListBox](https://docs.devexpress.com/Blazor/DevExpress.Blazor.DxListBox-2) control from our Blazor Suite), because there is no platform-agnostic way to achieve such a look and feel.
 
-<p><a href="http://documentation.devexpress.com/#Xaf/CustomDocument3097"><u>Implement Custom Property Editors</u></a><br /><a href="https://www.devexpress.com/Support/Center/p/E444">How to represent a enumeration property via radio buttons or check boxes on the Web</a></p>
+<p><a href="http://documentation.devexpress.com/#Xaf/CustomDocument3097"><u>Implement Custom Property Editors</u></a>
 
 <br/>
 
