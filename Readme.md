@@ -6,9 +6,10 @@
 <!-- default file list -->
 *Files to look at*:
 
-* [ASPxEnumPropertyEditorEx.cs](./CS/E689.Module.Web/Editors/ASPxEnumPropertyEditorEx.cs) (VB: [ASPxEnumPropertyEditorEx.vb](./VB/E689.Module.Web/Editors/ASPxEnumPropertyEditorEx.vb))
-* [EnumPropertyEditorEx.cs](./CS/E689.Module.Win/Editors/EnumPropertyEditorEx.cs) (VB: [EnumPropertyEditorEx.vb](./VB/E689.Module.Win/Editors/EnumPropertyEditorEx.vb))
-* [DemoObjects.cs](./CS/E689.Module/BusinessObjects/DemoObjects.cs) (VB: [DemoObjects.vb](./VB/E689.Module/BusinessObjects/DemoObjects.vb))
+* [BlazorEnumPropertyEditor](./CS/EFCore/EnumCheckBoxEF/EnumCheckBoxEF.Blazor.Server/Editors)
+* [WinEnumPropertyEditor.cs](./CS/EFCore/EnumCheckBoxEF/EnumCheckBoxEF.Win/Editors/EnumPropertyEditorEx.cs) 
+* [DemoObjects.cs](./CS/EFCore/EnumCheckBoxEF/EnumCheckBoxEF.Module/BusinessObjects/DemoObjects.cs)
+* [TestFlagsAttributeEnum.cs](./CS/EFCore/EnumCheckBoxEF/EnumCheckBoxEF.Module/BusinessObjects/TestFlagsAttributeEnum.cs)
 <!-- default file list end -->
 # How to represent an enumeration property via a drop-down box with check boxes
 
