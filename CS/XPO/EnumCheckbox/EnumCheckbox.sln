@@ -3,12 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnumCheckbox.Blazor.Server", "EnumCheckbox.Blazor.Server\EnumCheckbox.Blazor.Server.csproj", "{4F0054CA-8168-44C7-A1B3-5CD3ED07848A}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnumCheckbox.Module", "EnumCheckbox.Module\EnumCheckbox.Module.csproj", "{189F6B01-3B70-4B5F-9664-F5682CF0288C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnumCheckbox.Win", "EnumCheckbox.Win\EnumCheckbox.Win.csproj", "{3563D692-F29F-405B-91EB-EED70A9C8868}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnumCheckbox.Blazor.Server", "EnumCheckbox.Blazor.Server\EnumCheckbox.Blazor.Server.csproj", "{4F0054CA-8168-44C7-A1B3-5CD3ED07848A}"
-EndProject
+
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
