@@ -15,7 +15,7 @@
 
 
 <p><strong>Scenario:</strong></p>
-<p>There is an enumeration type decorated with the FlagsAttribute, which means that an enumeration can be treated as a set of flags. There is also a property of this enumeration type inside the business class. This is helpful when several predefined enumeration values can be stored using this data property. This example shows how to create an editor to represent such property via an editor with multiple check boxes:</p>
+<p>There is an enumeration type decorated with the FlagsAttribute, which means that an enumeration can be treated as a set of flags. There is also a property of this enumeration type inside the business class. This is helpful when several predefined enumeration values can be stored using this data property. This example shows how to create an editor to represent such a property via an editor with multiple check boxes:</p>
 
 ![image](https://user-images.githubusercontent.com/14300209/234846358-4435cbbe-130d-410b-9958-fb8450a11480.png)
 
