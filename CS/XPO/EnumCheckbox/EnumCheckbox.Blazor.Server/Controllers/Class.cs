@@ -18,10 +18,8 @@ namespace EnumCheckbox.Blazor.Server.Controllers {
             View.CustomizeViewItemControl<MyEnumPropertyEditor>(this, SetCalendarView, nameof(DemoObject.TestMe));
         }
         private void SetCalendarView(MyEnumPropertyEditor propertyEditor) {
-            //Obtain the Component Adapter
-            var dateEditAdapter = (IHasModelAdapter)propertyEditor.Control;
             //Set the date picker display mode to scroll picker
-            var tst = dateEditAdapter.ComponentModel.Values;
+            var tst = propertyEditor.ComponentModel.Values;
         }
     }
     public class CustomBlazorController : ObjectViewController<DetailView, DemoObject> {
@@ -36,10 +34,8 @@ namespace EnumCheckbox.Blazor.Server.Controllers {
             //var obj = os.CreateObject<MyNonPersistentClass>();
             //var detailView = Application.CreateDetailView(os, obj);
             var it = View.FindItem(nameof(DemoObject.TestMe)) as MyEnumPropertyEditor;
-            var dateEditAdapter = (IHasModelAdapter)it.Control;
             //Set the date picker display mode to scroll picker
-            var tst = dateEditAdapter.ComponentModel.Values;
-
+            var tst = it.ComponentModel.Values;
         }
 
         protected override void OnActivated() {
@@ -51,10 +47,9 @@ namespace EnumCheckbox.Blazor.Server.Controllers {
         }
         protected override void OnViewControlsCreated() {
             base.OnViewControlsCreated();
-            //if (View.Editor is DxGridListEditor gridListEditor) {
-            //           IDxGridAdapter dataGridAdapter = gridListEditor.GetGridAdapter();
-            //           dataGridAdapter.GridModel.ColumnResizeMode = DevExpress.Blazor.GridColumnResizeMode.ColumnsContainer;
-            //       }
+            // if (View.Editor is DxGridListEditor gridListEditor) {
+            //     gridListEditor.GridModel.ColumnResizeMode = DevExpress.Blazor.GridColumnResizeMode.ColumnsContainer;
+            // }
         }
         protected override void OnDeactivated() {
             base.OnDeactivated();

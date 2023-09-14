@@ -5,22 +5,23 @@ using DevExpress.ExpressApp.Blazor.Components.Models;
 using DevExpress.ExpressApp.Blazor.Editors.Adapters;
 using DevExpress.ExpressApp.Editors;
 using DevExpress.ExpressApp.Utils;
-using EnumCheckBoxEF.Blazor.Server.Editors.EnumPropertyEditor;
 using EnumCheckboxModule.Module;
 using Microsoft.AspNetCore.Components;
 using System;
 
 namespace EnumCheckbox.Blazor.Server.Editors.EnumPropertyEditor {
 
-    public class EnumAdapter<T> : ComponentAdapterBase, IHasModelAdapter where T : Enum {
+    public abstract class EnumAdapter : ComponentAdapterBase {
+        public abstract override EnumEditorModel ComponentModel { get; }
+    }
 
-
+    public class EnumAdapter<T> : ComponentAdapterBase where T : Enum {
+        public override EnumEditorModel ComponentModel { get; }
         public EnumAdapter(EnumEditorModel componentModel) {
             ComponentModel = componentModel ?? throw new ArgumentNullException(nameof(componentModel));
             ComponentModel.ValueChanged += ComponentModel_ValueChanged;
         }
 
-        public EnumEditorModel ComponentModel { get; }
         public override void SetAllowEdit(bool allowEdit) {
             ComponentModel.ReadOnly = !allowEdit;
         }

@@ -11,15 +11,17 @@ using System;
 
 namespace EnumCheckbox.Blazor.Server.Editors.EnumPropertyEditor {
 
-    public class EnumAdapter<T> : ComponentAdapterBase, IHasModelAdapter where T : Enum {
+    public abstract class EnumAdapter : ComponentAdapterBase {
+        public abstract override EnumEditorModel ComponentModel { get; }
+    }
 
-
+    public class EnumAdapter<T> : EnumAdapter where T : Enum {
+        public override EnumEditorModel ComponentModel { get; }
         public EnumAdapter(EnumEditorModel componentModel) {
             ComponentModel = componentModel ?? throw new ArgumentNullException(nameof(componentModel));
             ComponentModel.ValueChanged += ComponentModel_ValueChanged;
         }
 
-        public EnumEditorModel ComponentModel { get; }
         public override void SetAllowEdit(bool allowEdit) {
             ComponentModel.ReadOnly = !allowEdit;
         }
