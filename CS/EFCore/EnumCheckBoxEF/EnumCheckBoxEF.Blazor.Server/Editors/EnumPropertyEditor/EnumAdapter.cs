@@ -5,6 +5,7 @@ using DevExpress.ExpressApp.Blazor.Components.Models;
 using DevExpress.ExpressApp.Blazor.Editors.Adapters;
 using DevExpress.ExpressApp.Editors;
 using DevExpress.ExpressApp.Utils;
+using EnumCheckBoxEF.Blazor.Server.Editors.EnumPropertyEditor;
 using EnumCheckboxModule.Module;
 using Microsoft.AspNetCore.Components;
 using System;
