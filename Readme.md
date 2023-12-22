@@ -3,9 +3,9 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
 
-# XAF - How to Display an Enumeration Property as a Drop-down Box with Check Boxes
+# XAF - How to Display an Enumeration Property as a Check List
 
-This example demonstrates how to create a custom Property Editor that displays an enumeration property as a drop-down box with check boxes, if the enumeration type has `FlagsAttribute` that allows to treat this enumeration as a set of flags.
+This example demonstrates how to create a custom Property Editor that displays an enumeration property as a check list. The enumeration type must be declared with a `FlagsAttribute` (allows to treat this enumeration as a set of flags).
 
 ![image](https://user-images.githubusercontent.com/14300209/234846358-4435cbbe-130d-410b-9958-fb8450a11480.png)
 
