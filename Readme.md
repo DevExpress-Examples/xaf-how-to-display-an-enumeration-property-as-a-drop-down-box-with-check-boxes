@@ -11,7 +11,7 @@ This example demonstrates how to create a custom Property Editor that displays a
 
 ## Implementation Details
 
-Since XAF does not have a built-in Property Editor for [enumeration properties](https://docs.devexpress.com/eXpressAppFramework/113552/business-model-design-orm/data-types-supported-by-built-in-editors/enumeration-properties) that can store several values at once,  you need to implement a custom Property Editor. It takes data property value as input and displays it in the UI with the help of a custom visual control. In an XAF Windows Forms application, the control is based on [`CheckedComboBoxEdit`](https://docs.devexpress.com/WindowsForms/DevExpress.XtraEditors.CheckedComboBoxEdit) editor from the XtraEditors Library. In an XAF ASP.NET Core Blazor application, it is based on the [DxListBox](https://docs.devexpress.com/Blazor/DevExpress.Blazor.DxListBox-2) control from the Blazor Library.
+XAF does not have a built-in Property Editor for [enumeration properties](https://docs.devexpress.com/eXpressAppFramework/113552/business-model-design-orm/data-types-supported-by-built-in-editors/enumeration-properties) that can store several values at once.  You need to implement a custom Property Editor that obtains the data property value and displays it in the UI with the help of a custom visual control. In an XAF Windows Forms application, the control is [`CheckedComboBoxEdit`](https://docs.devexpress.com/WindowsForms/DevExpress.XtraEditors.CheckedComboBoxEdit). In an XAF ASP.NET Core Blazor application, the control is [DxListBox](https://docs.devexpress.com/Blazor/DevExpress.Blazor.DxListBox-2).
 
 ## Files To Look At
 
