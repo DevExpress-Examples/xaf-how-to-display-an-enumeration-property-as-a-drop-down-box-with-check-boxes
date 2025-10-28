@@ -27,6 +27,7 @@ namespace EnumCheckboxModule.Module {
             set { SetPropertyValue(nameof(Name), ref _Name, value); }
         }
         private TestFlagsAttributeEnum _TestMe;
+        [EditorAlias("MyEnumPropertyEditorAlias")]
         public TestFlagsAttributeEnum TestMe {
             get { return _TestMe; }
             set { SetPropertyValue(nameof(TestMe), ref _TestMe, value); }
