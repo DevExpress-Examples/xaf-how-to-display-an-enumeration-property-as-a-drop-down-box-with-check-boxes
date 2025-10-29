@@ -11,53 +11,45 @@ using System.Linq;
 
 namespace EnumCheckboxModule.Module.Win.Editors {
     [PropertyEditor(typeof(System.Enum), "MyEnumPropertyEditorAlias", false)]
-    public class EnumPropertyEditorEx : EnumPropertyEditor {
+    public class EnumPropertyEditorEx : DXPropertyEditor {
         private object noneValue;
         public EnumPropertyEditorEx(Type objectType, IModelMemberViewItem model)
             : base(objectType, model) {
+            var hasFlagAttribute = GetUnderlyingType().GetCustomAttributes(typeof(FlagsAttribute), true).Length > 0;
+            if (!hasFlagAttribute)
+                throw new InvalidOperationException("No [Flags] attribute detected. Please use the default editor instead.");
         }
         private EnumDescriptor enumDescriptorCore = null;
         protected EnumDescriptor EnumDescriptor {
             get {
-                if(enumDescriptorCore == null) {
+                if (enumDescriptorCore == null) {
                     enumDescriptorCore = new EnumDescriptor(GetUnderlyingType());
                 }
                 return enumDescriptorCore;
             }
         }
-        private bool TypeHasFlagsAttribute() {
-            return GetUnderlyingType().GetCustomAttributes(typeof(FlagsAttribute), true).Length > 0;
-        }
         protected override object CreateControlCore() {
             CheckedComboBoxEdit checkedEdit = new CheckedComboBoxEdit();
-			checkedEdit.Properties.ForceUpdateEditValue = DevExpress.Utils.DefaultBoolean.True;
-            if(TypeHasFlagsAttribute()) {
-                return checkedEdit;
-            }
-            return base.CreateControlCore();
+            checkedEdit.Properties.ForceUpdateEditValue = DevExpress.Utils.DefaultBoolean.True;
+            return checkedEdit;
         }
         protected override RepositoryItem CreateRepositoryItem() {
-            if(TypeHasFlagsAttribute()) {
-                return new RepositoryItemCheckedComboBoxEdit();
-            }
-            return base.CreateRepositoryItem();
+            return new RepositoryItemCheckedComboBoxEdit();
         }
         protected override void SetupRepositoryItem(RepositoryItem item) {
             base.SetupRepositoryItem(item);
-            if(TypeHasFlagsAttribute()) {
-                RepositoryItemCheckedComboBoxEdit checkedItem = ((RepositoryItemCheckedComboBoxEdit)item);
-                checkedItem.BeginUpdate();
-                noneValue = GetNoneValue();
-                checkedItem.SetFlags(GetUnderlyingType());
-                //Dennis: this is required to show localized items in the editor.
-                foreach(CheckedListBoxItem itm in checkedItem.Items) {
-                    itm.Description = EnumDescriptor.GetCaption(itm.Value);
-                }
-                checkedItem.EndUpdate();
-                checkedItem.ParseEditValue += checkedEdit_ParseEditValue;
-                checkedItem.CustomDisplayText += checkedItem_CustomDisplayText;
-                checkedItem.Disposed += checkedItem_Disposed;
+            RepositoryItemCheckedComboBoxEdit checkedItem = ((RepositoryItemCheckedComboBoxEdit)item);
+            checkedItem.BeginUpdate();
+            noneValue = GetNoneValue();
+            checkedItem.SetFlags(GetUnderlyingType());
+            //Dennis: this is required to show localized items in the editor.
+            foreach (CheckedListBoxItem itm in checkedItem.Items) {
+                itm.Description = EnumDescriptor.GetCaption(itm.Value);
             }
+            checkedItem.EndUpdate();
+            checkedItem.ParseEditValue += checkedEdit_ParseEditValue;
+            checkedItem.CustomDisplayText += checkedItem_CustomDisplayText;
+            checkedItem.Disposed += checkedItem_Disposed;
         }
         void checkedItem_Disposed(object sender, EventArgs e) {
             RepositoryItemCheckedComboBoxEdit checkedItem = (RepositoryItemCheckedComboBoxEdit)sender;
@@ -66,23 +58,23 @@ namespace EnumCheckboxModule.Module.Win.Editors {
             checkedItem.Disposed -= checkedItem_Disposed;
         }
         private void checkedEdit_ParseEditValue(object sender, ConvertEditValueEventArgs e) {
-            if(string.IsNullOrEmpty(Convert.ToString(e.Value))) {
+            if (string.IsNullOrEmpty(Convert.ToString(e.Value))) {
                 e.Value = noneValue;
                 e.Handled = true;
             }
         }
         private void checkedItem_CustomDisplayText(object sender, CustomDisplayTextEventArgs e) {
-            if(EnumDescriptor == null)
+            if (EnumDescriptor == null)
                 return;
             e.DisplayText = GetCaption((Enum)e.Value);
         }
         public string GetCaption(Enum enumValue) {
-            if(EnumDescriptor == null || enumValue == null)
+            if (EnumDescriptor == null || enumValue == null)
                 return string.Empty;
             return string.Join(", ", enumValue.ToString().Split(',').Select(x => EnumDescriptor.GetCaption(Enum.Parse(EnumDescriptor.EnumType, x.Trim()))));
         }
         private bool IsNoneValue(object value) {
-            if(value is string) {
+            if (value is string) {
                 return false;
             }
             int result = int.MinValue;

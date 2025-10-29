@@ -23,7 +23,7 @@ namespace EnumCheckbox.Blazor.Server.Editors.EnumPropertyEditor {
         public string Text { get; set; }
     }
 
-    [PropertyEditor(typeof(System.Enum), false)]
+    [PropertyEditor(typeof(System.Enum), "MyEnumPropertyEditorAlias", false)]
     public class MyEnumPropertyEditor : BlazorPropertyEditorBase {
         public MyEnumPropertyEditor(Type objectType, IModelMemberViewItem model) : base(objectType, model) { }
 
