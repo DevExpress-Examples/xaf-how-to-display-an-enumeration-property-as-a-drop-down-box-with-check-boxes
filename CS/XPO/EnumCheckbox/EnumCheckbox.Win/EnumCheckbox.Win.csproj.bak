@@ -28,16 +28,17 @@
     <EmbeddedResource Include="Images\Logo.svg" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DevExpress.ExpressApp" Version="25.2.1-alpha-25302" />
-    <PackageReference Include="DevExpress.ExpressApp.EFCore" Version="25.2.1-alpha-25302" />
-    <PackageReference Include="DevExpress.ExpressApp.Win" Version="25.2.1-alpha-25302" />
-    <PackageReference Include="DevExpress.ExpressApp.Win.Design" Version="25.2.1-alpha-25302" />
-    <PackageReference Include="DevExpress.Persistent.Base" Version="25.2.1-alpha-25302" />
-    <PackageReference Include="DevExpress.Persistent.BaseImpl.EFCore" Version="25.2.1-alpha-25302" />
-    <PackageReference Include="DevExpress.RichEdit.Export" Version="25.2.1-alpha-25302" />
-    <PackageReference Include="DevExpress.Win.Design" Version="25.2.1-alpha-25302" />
+    <PackageReference Include="DevExpress.ExpressApp" Version="25.1.6" />
+    <PackageReference Include="DevExpress.ExpressApp.Win" Version="25.1.6" />
+    <PackageReference Include="DevExpress.ExpressApp.Xpo" Version="25.1.6" />
+    <PackageReference Include="DevExpress.Persistent.Base" Version="25.1.6" />
+    <PackageReference Include="DevExpress.Persistent.BaseImpl.Xpo" Version="25.1.6" />
+    <PackageReference Include="DevExpress.RichEdit.Export" Version="25.1.6" />
+    <PackageReference Include="DevExpress.Win.Design" Version="25.1.6" />
+  
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EnumCheckBoxEF.Module\EnumCheckBoxEF.Module.csproj" />
+    <ProjectReference Include="..\EnumCheckbox.Module\EnumCheckbox.Module.csproj" />
   </ItemGroup>
 </Project>
