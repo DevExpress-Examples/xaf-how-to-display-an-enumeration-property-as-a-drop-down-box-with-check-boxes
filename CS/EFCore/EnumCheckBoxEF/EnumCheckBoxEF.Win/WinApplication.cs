@@ -18,7 +18,6 @@ public class EnumCheckBoxEFWindowsFormsApplication : WinApplication {
 		SplashScreen = new DXSplashScreen(typeof(XafSplashScreen), new DefaultOverlayFormOptions());
         ApplicationName = "EnumCheckBoxEF";
         CheckCompatibilityType = DevExpress.ExpressApp.CheckCompatibilityType.DatabaseSchema;
-        UseOldTemplates = false;
         DatabaseVersionMismatch += EnumCheckBoxEFWindowsFormsApplication_DatabaseVersionMismatch;
         CustomizeLanguagesList += EnumCheckBoxEFWindowsFormsApplication_CustomizeLanguagesList;
     }
